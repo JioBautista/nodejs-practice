@@ -10,10 +10,21 @@ displayNames(lastNames[0]);
 
 const { readFile } = require("fs");
 
-readFile('./userNames.js','utf8', (err,data) => {
-    if(err) {
-        console.log(err);
-        return;
+readFile("./userNames.js", "utf8", (err, data) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(data);
+});
+
+const http = require("http");
+const server = http.createServer((req, res) => {
+    if(req.url === "/") {
+        res.end('<h1>Welcome to my page</>')
+    } if (req.url === "/about") {
+        res.end('<h1>My name is JIO!</>')
     }
-    console.log(data);    
-})
+});
+
+server.listen(5000);
