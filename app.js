@@ -26,5 +26,11 @@ const server = http.createServer((req, res) => {
         res.end('<h1>My name is JIO!</>')
     }
 });
-
 server.listen(5000);
+console.log("Start");
+
+setTimeout(() => {
+  console.log("5 seconds")  
+}, 10000);
+
+console.log("End")
