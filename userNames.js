@@ -14,4 +14,4 @@ module.exports.users = [
     firstName: "Bruce",
     lastName: "Wayne",
   },
-];
+]
