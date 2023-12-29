@@ -1,5 +1,7 @@
 const { readFile, writeFile } = require("fs").promises;
-const { appendFile } = require("fs");
+const EventEmitter = require('events')
+
+const customEmitter = new EventEmitter()
 
 const start = async () => {
   try {
@@ -9,4 +11,12 @@ const start = async () => {
     console.log(err);
   }
 };
+
+customEmitter.on('hasLoggedIn', (name,id) => {
+  console.log(`${name} with ID of ${id} has succesfully logged in.`)
+})
+
+customEmitter.emit('hasLoggedIn','John',24)
+customEmitter.emit('hasLoggedIn','Andrew',14)
+
 start();
